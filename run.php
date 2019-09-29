@@ -24,7 +24,8 @@ if (curl_errno($ch)) {
 }else
 {
 	$pecah = json_decode($result,1);
-	if ($pecah['error_code'] == 1) {
+	//print_r($pecah);
+	if ($pecah['error'] == 1) {
 		die("User / Password Salah");
 	}
 	//print_r($pecah);
@@ -55,7 +56,7 @@ $ch = curl_init();
 	$headers[] = 'Host: admin.epicashapp.com';
 	$headers[] = 'Connection: close';
 	//$headers[] = 'Cookie: PHPSESSID=eb00f46fbaf362186e75948b47a4d5c2';
-	$headers[] = 'Content-Length: 302';
+	//$headers[] = 'Content-Length: 302';
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 	$result = curl_exec($ch);
